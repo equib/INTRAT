@@ -5,15 +5,15 @@ matrix:
   - os: linux
     dist: trusty
     sudo: required
-    env: PLUMED_CC=f77 PLUMED_CXX=f77  MAKEDOC=yes PLUMED_ALL_TESTS=yes
+    env: PLUMED_CC=gfortran PLUMED_CXX=gfortran  MAKEDOC=yes PLUMED_ALL_TESTS=yes
   - os: linux
     dist: trusty
     sudo: required
-    env: PLUMED_CC=f77 PLUMED_CXX=f77  PLUMED_CXXFLAGS=-O3 LAPACK=yes CONFIG_FLAGS="--disable-external-lapack"
+    env: PLUMED_CC=gfortran PLUMED_CXX=gfortran  PLUMED_CXXFLAGS=-O3 LAPACK=yes CONFIG_FLAGS="--disable-external-lapack"
 
 install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get update -qq ; fi
-  - if test "$PLUMED_CXX" == "f77" -a "$TRAVIS_OS_NAME" == "linux" ; then sudo apt-get install gfortran ; fi
+  - if test "$PLUMED_CXX" == "gfortran" -a "$TRAVIS_OS_NAME" == "linux" ; then sudo apt-get install gfortran ; fi
   - make
 
 script: 
