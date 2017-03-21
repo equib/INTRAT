@@ -1,7 +1,7 @@
 SOURCE=source/intrat.f
 MYPROGRAM=intrat
 
-FC=f77
+FC=gfortran
 
 all: $(MYPROGRAM)
 
